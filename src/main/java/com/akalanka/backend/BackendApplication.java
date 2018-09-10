@@ -1,6 +1,7 @@
 package com.akalanka.backend;
 
 
+import com.akalanka.backend.config.GmailInbox;
 import com.akalanka.backend.config.SecurityUtility;
 import com.akalanka.backend.model.*;
 import com.akalanka.backend.model.security.Role;
@@ -47,6 +48,9 @@ public class BackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
+		GmailInbox gmail = new GmailInbox();
+		gmail.read();
 
 		User user1 = new User();
 		user1.setFirstName("John");
