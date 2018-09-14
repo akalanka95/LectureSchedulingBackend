@@ -28,4 +28,9 @@ public class LectureServiceImp implements LectureService {
     public List<Lecture> saveAll(List<Lecture> lectures) {
         return lectureRepository.save(lectures);
     }
+
+    @Override
+    public Lecture findById(Integer lecId) {
+        return lectureRepository.findById(lecId);
+    }
 }

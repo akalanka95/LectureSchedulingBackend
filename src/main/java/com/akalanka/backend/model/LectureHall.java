@@ -17,11 +17,16 @@ public class LectureHall {
     private int capacity;
 
     @OneToMany(mappedBy = "lectureHall",
-            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+            cascade = {CascadeType.DETACH,
                     CascadeType.REFRESH})
     @JsonIgnore
-    private List<Course> courses;
+    private List<TimeTable> timeTable;
 
+    @OneToMany(mappedBy = "lectureHall",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<TimeTableWeek> timeTableWeek;
     public LectureHall() {
     }
 
@@ -65,11 +70,19 @@ public class LectureHall {
         this.capacity = capacity;
     }
 
-    public List<Course> getCourses() {
-        return courses;
+    public List<TimeTable> getTimeTable() {
+        return timeTable;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setTimeTable(List<TimeTable> timeTable) {
+        this.timeTable = timeTable;
+    }
+
+    public List<TimeTableWeek> getTimeTableWeek() {
+        return timeTableWeek;
+    }
+
+    public void setTimeTableWeek(List<TimeTableWeek> timeTableWeek) {
+        this.timeTableWeek = timeTableWeek;
     }
 }

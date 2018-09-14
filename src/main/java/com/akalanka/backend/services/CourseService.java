@@ -8,4 +8,5 @@ public interface CourseService {
     List<Course> findAll();
     Course save(Course course);
     Iterable<Course> findBySemesterId(Integer semId);
+    Course findById(Integer couId);
 }

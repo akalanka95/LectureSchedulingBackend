@@ -7,6 +7,8 @@ import com.akalanka.backend.model.*;
 import com.akalanka.backend.model.security.Role;
 import com.akalanka.backend.model.security.UserRole;
 import com.akalanka.backend.repository.AttendanceRepository;
+import com.akalanka.backend.repository.MessageRepository;
+import com.akalanka.backend.repository.WeekRepository;
 import com.akalanka.backend.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -41,6 +43,10 @@ public class BackendApplication implements CommandLineRunner {
 	private TimeTableService timeTableService;
 	@Autowired
 	private AttendanceRepository attendanceRepository;
+	@Autowired
+	private WeekRepository weekRepository;
+	@Autowired
+	private MessageRepository messageRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
@@ -82,11 +88,11 @@ public class BackendApplication implements CommandLineRunner {
 		userService.createUser(user2, userRoles);
 
 		//department
-		Department department1 = new Department();
+		/*Department department1 = new Department();
 		department1.setDepartmentName("cis");
 		department1.setActive(true);
 		department1.setDescription("adads");
-		departmentService.save(department1);
+		departmentService.save(department1);*/
 
 		Department department2 = new Department();
 		department2.setActive(true);
@@ -94,10 +100,40 @@ public class BackendApplication implements CommandLineRunner {
 		department2.setDescription(" The degree program has been designed so that the graduates could cater to the growing demand in government and private sector. ");
 		departmentService.save(department2);
 		//Semester
-		Semester semester1 = new Semester("Semester one");
+		Semester semester1 = new Semester("Year 1");
 		semesterService.save(semester1);
-		Semester semester2 = new Semester("Semester two");
+		Semester semester2 = new Semester("Year 2");
 		semesterService.save(semester2);
+		Semester semester3 = new Semester("Year 3");
+		semesterService.save(semester3);
+		Semester semester4 = new Semester("Year 4");
+		semesterService.save(semester4);
+
+		// Week
+		Week w1 = new Week();
+		w1.setActive(true);
+		w1.setWeek("Week 1");
+		weekRepository.save(w1);
+
+		Week w2 = new Week();
+		w2.setActive(false);
+		w2.setWeek("Week 2");
+		weekRepository.save(w2);
+
+		Week w3 = new Week();
+		w3.setActive(false);
+		w3.setWeek("Week 3");
+		weekRepository.save(w3);
+
+		Week w4 = new Week();
+		w4.setActive(false);
+		w4.setWeek("Week 4");
+		weekRepository.save(w4);
+
+		Week w5 = new Week();
+		w5.setActive(false);
+		w5.setWeek("All Weeks");
+		weekRepository.save(w5);
 
 		//day
 		Day d1 = new Day();
@@ -107,8 +143,23 @@ public class BackendApplication implements CommandLineRunner {
 
 		Day d2 = new Day();
 		d2.setDay("Tuesday");
-		d2.setActive(false);
+		d2.setActive(true);
 		dayService.save(d2);
+
+		Day d3 = new Day();
+		d3.setDay("Wednesday");
+		d3.setActive(true);
+		dayService.save(d3);
+
+		Day d4 = new Day();
+		d4.setDay("Thursday");
+		d4.setActive(true);
+		dayService.save(d4);
+
+		Day d5 = new Day();
+		d5.setDay("Friday");
+		d5.setActive(true);
+		dayService.save(d5);
 
 		//Time
 		Time time18 = new Time();
@@ -152,6 +203,24 @@ public class BackendApplication implements CommandLineRunner {
         Time time30 = new Time();
         time30.setTime("14:00");
         timeService.save(time30);
+		Time time31 = new Time();
+		time31.setTime("14:30");
+		timeService.save(time31);
+		Time time32 = new Time();
+		time32.setTime("15:00");
+		timeService.save(time32);
+		Time time33 = new Time();
+		time33.setTime("15:30");
+		timeService.save(time33);
+		Time time34 = new Time();
+		time34.setTime("16:00");
+		timeService.save(time34);
+		Time time35 = new Time();
+		time35.setTime("16:30");
+		timeService.save(time35);
+		Time time36 = new Time();
+		time36.setTime("17:00");
+		timeService.save(time36);
 
 		//attendance
 		Attendance attendance = new Attendance();
@@ -175,6 +244,20 @@ public class BackendApplication implements CommandLineRunner {
 		attendance2.setThursday(true);
 		attendance2.setFriday(true);
 
+		Attendance attendance3 = new Attendance();
+		attendance3.setMonday(true);
+		attendance3.setTuesday(true);
+		attendance3.setWednesday(true);
+		attendance3.setThursday(true);
+		attendance3.setFriday(true);
+
+		Attendance attendance4 = new Attendance();
+		attendance4.setMonday(true);
+		attendance4.setTuesday(true);
+		attendance4.setWednesday(true);
+		attendance4.setThursday(true);
+		attendance4.setFriday(true);
+
 		//LectureHall
 		LectureHall lectureHall = new LectureHall();
 		lectureHall.setCode("LT-104");
@@ -190,6 +273,34 @@ public class BackendApplication implements CommandLineRunner {
 		lectureHall1.setCapacity(150);
 		lectureHallService.save(lectureHall1);
 
+		LectureHall lectureHall2 = new LectureHall();
+		lectureHall2.setCode("LT-202");
+		lectureHall2.setDescription("A lecture hall inside the faculty");
+		lectureHall2.setName("LT-202");
+		lectureHall2.setCapacity(50);
+		lectureHallService.save(lectureHall2);
+
+		LectureHall lectureHall3 = new LectureHall();
+		lectureHall3.setCode("Z-9");
+		lectureHall3.setDescription("Old lecture hall");
+		lectureHall3.setName("Z-9");
+		lectureHall3.setCapacity(75);
+		lectureHallService.save(lectureHall3);
+
+		LectureHall lectureHall4 = new LectureHall();
+		lectureHall4.setCode("NLH");
+		lectureHall4.setDescription("New lecture hall");
+		lectureHall4.setName("NLH");
+		lectureHall4.setCapacity(100);
+		lectureHallService.save(lectureHall4);
+
+		LectureHall lectureHall5 = new LectureHall();
+		lectureHall5.setCode("CIS Lab");
+		lectureHall5.setDescription("CIS Computer Laboratory");
+		lectureHall5.setName("CIS Lab");
+		lectureHall5.setCapacity(80);
+		lectureHallService.save(lectureHall5);
+
 		//lecturer
 		Lecture lecture = new Lecture();
 		lecture.setAddress("colombo");
@@ -198,7 +309,7 @@ public class BackendApplication implements CommandLineRunner {
 		lecture.setFullName("Dr.M.Nirmali Wicramaratne");
 		lecture.setRole("Senior Lecturer");
 		lecture.setActive(true);
-		lecture.setDepartment(department1);
+		lecture.setDepartment(department2);
 		lecture.setAttendance(attendance);
 		lectureService.save(lecture);
 
@@ -224,6 +335,28 @@ public class BackendApplication implements CommandLineRunner {
 		lecture3.setAttendance(attendance2);
 		lectureService.save(lecture3);
 
+		Lecture lecture4 = new Lecture();
+		lecture4.setAddress("Ratnapura");
+		lecture4.setContact("+94453454527");
+		lecture4.setEmail("jatalathek@appsc.sab.ac.lk");
+		lecture4.setFullName("Mr.Jayalath B.Ekanayake");
+		lecture4.setRole("Head of the department");
+		lecture4.setActive(true);
+		lecture4.setDepartment(department2);
+		lecture4.setAttendance(attendance3);
+		lectureService.save(lecture4);
+
+		Lecture lecture5 = new Lecture();
+		lecture5.setAddress("Colombo");
+		lecture5.setContact("+94717851500");
+		lecture5.setEmail("priyan@appsc.sab.ac.lk");
+		lecture5.setFullName("Mr.S.Vasanthapriyan");
+		lecture5.setRole("Senior Lecturer");
+		lecture5.setActive(true);
+		lecture5.setDepartment(department2);
+		lecture5.setAttendance(attendance4);
+		lectureService.save(lecture5);
+
 
 		//Student
 		Student student1 = new Student();
@@ -233,29 +366,80 @@ public class BackendApplication implements CommandLineRunner {
 		student1.setEmail("as");
 		student1.setFullName("ak");
 		student1.setRole("ad");
-		student1.setDepartment(department1);
+		student1.setDepartment(department2);
 		student1.setSemester(semester1);
 		studentService.save(student1);
+
+		//message
+		Message m1 = new Message();
+		m1.setDate("2018/01/03");
+		m1.setTime("8.30am");
+		m1.setType("send");
+		m1.setMessage("Hai Good Morning");
+		m1.setLecture(lecture);
+		messageRepository.save(m1);
+
+
+		Message m2 = new Message();
+		m2.setDate("2018/01/03");
+		m2.setTime("9.30am");
+		m2.setType("send");
+		m2.setMessage("Hai Good Morning man");
+		m2.setLecture(lecture);
+		messageRepository.save(m2);
+
+		Message m3 = new Message();
+		m3.setDate("2018/01/03");
+		m3.setTime("10.30am");
+		m3.setType("received");
+		m3.setMessage("Same to You");
+		m3.setLecture(lecture);
+		messageRepository.save(m3);
+
+		Message m4 = new Message();
+		m4.setDate("2018/01/03");
+		m4.setTime("10.30am");
+		m4.setType("received");
+		m4.setMessage("I am Lecture 2");
+		m4.setLecture(lecture2);
+		messageRepository.save(m4);
 
 		//Course
 		Course course = new Course();
 		course.setCourseCode("IS22221");
 		course.setCourseName("Operating Systems");
 		course.setDescription("This is regarding Operating System");
-		course.setDepartment(department1);
+		course.setDepartment(department2);
 		course.setLecture(lecture);
-		course.setLectureHall(lectureHall);
 		course.setSemester(semester1);
+		courseService.save(course);
 
 		Course course1 = new Course();
 		course1.setCourseCode("IS3000");
 		course1.setCourseName("Agile Systems");
 		course1.setDescription("This is regarding Operating System");
-		course1.setDepartment(department1);
-		course1.setLecture(lecture);
-		course1.setLectureHall(lectureHall);
+		course1.setDepartment(department2);
+		course1.setLecture(lecture2);
 		course1.setSemester(semester1);
-		/*courseService.save(course);*/
+		courseService.save(course1);
+
+		Course course2 = new Course();
+		course2.setCourseCode("IS3001");
+		course2.setCourseName("Java");
+		course2.setDescription("This is regarding Operating System");
+		course2.setDepartment(department2);
+		course2.setLecture(lecture3);
+		course2.setSemester(semester1);
+		courseService.save(course2);
+
+		Course course3 = new Course();
+		course3.setCourseCode("IS3002");
+		course3.setCourseName("Angular");
+		course3.setDescription("This is regarding Operating System");
+		course3.setDepartment(department2);
+		course3.setLecture(lecture4);
+		course3.setSemester(semester1);
+		courseService.save(course3);
 
 		//TimeTable
 		TimeTable timeTable = new TimeTable();
@@ -265,24 +449,54 @@ public class BackendApplication implements CommandLineRunner {
 		timeTable.setSemester(semester1);
 		timeTable.setDate(d1);
 		timeTable.setStartTime(time18);
-		timeTable.setEndTime(time20);
+		timeTable.setEndTime(time21);
 		timeTable.setLecture(lecture);
-		timeTable.settWeek(false);
+		timeTable.settWeek(true);
 		timeTable.setnWeek(true);
+		timeTable.setLectureHall(lectureHall);
 		timeTableService.save(timeTable);
 
 		TimeTable timeTable1 = new TimeTable();
 		timeTable1.setActive(true);
-		timeTable1.setState("new");
+		timeTable1.setState("old");
 		timeTable1.setCourse(course1);
 		timeTable1.setSemester(semester1);
 		timeTable1.setDate(d1);
-		timeTable1.setStartTime(time21);
-		timeTable1.setEndTime(time23);
-		timeTable1.setLecture(lecture);
+		timeTable1.setStartTime(time22);
+		timeTable1.setEndTime(time25);
+		timeTable1.setLecture(lecture2);
 		timeTable1.settWeek(true);
 		timeTable1.setnWeek(false);
+		timeTable1.setLectureHall(lectureHall1);
 		timeTableService.save(timeTable1);
+
+		TimeTable timeTable2 = new TimeTable();
+		timeTable2.setActive(true);
+		timeTable2.setState("old");
+		timeTable2.setCourse(course2);
+		timeTable2.setSemester(semester1);
+		timeTable2.setDate(d1);
+		timeTable2.setStartTime(time26);
+		timeTable2.setEndTime(time29);
+		timeTable2.setLecture(lecture3);
+		timeTable2.settWeek(false);
+		timeTable2.setnWeek(true);
+		timeTable2.setLectureHall(lectureHall2);
+		timeTableService.save(timeTable2);
+
+		TimeTable timeTable3 = new TimeTable();
+		timeTable3.setActive(true);
+		timeTable3.setState("old");
+		timeTable3.setCourse(course3);
+		timeTable3.setSemester(semester1);
+		timeTable3.setDate(d1);
+		timeTable3.setStartTime(time31);
+		timeTable3.setEndTime(time34);
+		timeTable3.setLecture(lecture4);
+		timeTable3.settWeek(false);
+		timeTable3.setnWeek(false);
+		timeTable3.setLectureHall(lectureHall3);
+		timeTableService.save(timeTable3);
 
 		/*TimeTable timeTable3 = new TimeTable();
 		timeTable3.setActive(true);

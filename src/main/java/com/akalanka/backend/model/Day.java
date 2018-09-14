@@ -20,6 +20,12 @@ public class Day {
     @JsonIgnore
     private List<TimeTable> timeTables;
 
+    @OneToMany(mappedBy = "date",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<TimeTableWeek> timeTablesWeek;
+
     public Day() {
     }
 
@@ -53,5 +59,13 @@ public class Day {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<TimeTableWeek> getTimeTablesWeek() {
+        return timeTablesWeek;
+    }
+
+    public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
+        this.timeTablesWeek = timeTablesWeek;
     }
 }

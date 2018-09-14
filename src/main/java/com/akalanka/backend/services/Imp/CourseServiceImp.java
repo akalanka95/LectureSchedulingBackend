@@ -27,4 +27,9 @@ public class CourseServiceImp implements CourseService {
     public Iterable<Course> findBySemesterId(Integer semId) {
         return courseRepository.findBySemesterId(semId);
     }
+
+    @Override
+    public Course findById(Integer couId) {
+        return courseRepository.findById(couId);
+    }
 }

@@ -9,4 +9,5 @@ public interface LectureService {
     List<Lecture> findAll();
     Lecture save(Lecture lecture);
     List<Lecture> saveAll(List<Lecture> lectures);
+    Lecture findById(Integer lecId);
 }

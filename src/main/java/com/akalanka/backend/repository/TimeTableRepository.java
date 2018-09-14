@@ -23,6 +23,8 @@ public interface TimeTableRepository extends JpaRepository<TimeTable , Integer>{
 
     Iterable<TimeTable> findByDateId(@Param("dayId") Integer dayId);
 
+    Iterable<TimeTable> findByLectureId(@Param("lecId") Integer lecId);
+
             @Modifying
             @Query("SELECT  c FROM TimeTable c WHERE c.tWeek = true")
             Iterable<TimeTable> findByWeek();

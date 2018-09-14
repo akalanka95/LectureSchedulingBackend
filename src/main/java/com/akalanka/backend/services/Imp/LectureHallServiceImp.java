@@ -21,4 +21,9 @@ public class LectureHallServiceImp implements LectureHallService {
     public LectureHall save(LectureHall lectureHall) {
         return lectureHallRepository.save(lectureHall);
     }
+
+    @Override
+    public LectureHall findById(Integer hallId) {
+        return lectureHallRepository.findById(hallId);
+    }
 }

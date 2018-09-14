@@ -8,4 +8,5 @@ import java.util.List;
 public interface TimeService {
     List<Time> findAll();
     Time save(Time time);
+    Time findById(Integer timeId);
 }

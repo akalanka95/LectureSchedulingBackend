@@ -31,6 +31,12 @@ public class Semester {
     @JsonIgnore
     private List<TimeTable> timeTables;
 
+    @OneToMany(mappedBy = "semester",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                    CascadeType.REFRESH  })
+    @JsonIgnore
+    private List<TimeTableWeek> timeTablesWeek;
+
     public Semester() {
     }
 
@@ -76,5 +82,13 @@ public class Semester {
 
     public void setTimeTables(List<TimeTable> timeTables) {
         this.timeTables = timeTables;
+    }
+
+    public List<TimeTableWeek> getTimeTablesWeek() {
+        return timeTablesWeek;
+    }
+
+    public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
+        this.timeTablesWeek = timeTablesWeek;
     }
 }

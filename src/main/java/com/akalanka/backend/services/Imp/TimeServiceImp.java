@@ -22,4 +22,9 @@ public class TimeServiceImp implements TimeService {
     public Time save(Time time) {
         return timeRepository.save(time);
     }
+
+    @Override
+    public Time findById(Integer timeId) {
+        return timeRepository.findById(timeId);
+    }
 }

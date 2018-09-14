@@ -8,4 +8,5 @@ import java.util.List;
 public interface SemesterService {
     List<Semester> findAll();
     Semester save(Semester semester);
+    Semester findById(Integer semId);
 }

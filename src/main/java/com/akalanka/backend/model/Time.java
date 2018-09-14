@@ -24,6 +24,17 @@ public class Time{
     @JsonIgnore
     private List<TimeTable> endTimeTables;
 
+    @OneToMany(mappedBy = "startTime",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<TimeTableWeek> startTimeTablesWeek;
+    @OneToMany(mappedBy = "endTime",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<TimeTableWeek> endTimeTablesWeek;
+
     public Time( ) {
 
     }
@@ -58,5 +69,21 @@ public class Time{
 
     public void setEndTimeTables(List<TimeTable> endTimeTables) {
         this.endTimeTables = endTimeTables;
+    }
+
+    public List<TimeTableWeek> getStartTimeTablesWeek() {
+        return startTimeTablesWeek;
+    }
+
+    public void setStartTimeTablesWeek(List<TimeTableWeek> startTimeTablesWeek) {
+        this.startTimeTablesWeek = startTimeTablesWeek;
+    }
+
+    public List<TimeTableWeek> getEndTimeTablesWeek() {
+        return endTimeTablesWeek;
+    }
+
+    public void setEndTimeTablesWeek(List<TimeTableWeek> endTimeTablesWeek) {
+        this.endTimeTablesWeek = endTimeTablesWeek;
     }
 }

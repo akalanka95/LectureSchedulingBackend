@@ -25,6 +25,11 @@ public class TimeTableServiceImp implements TimeTableService {
     }
 
     @Override
+    public void delete(TimeTable timeTable) {
+        timeTableRepository.delete(timeTable);
+    }
+
+    @Override
     public Iterable<TimeTable>  findBySemesterId(Integer semesterID) {
         return  timeTableRepository.findBySemesterId(semesterID);
     }
@@ -53,5 +58,10 @@ public class TimeTableServiceImp implements TimeTableService {
     @Override
     public Iterable<TimeTable> findByWeek() {
         return timeTableRepository.findByWeek();
+    }
+
+    @Override
+    public Iterable<TimeTable> findByLectureId(Integer lecId) {
+        return timeTableRepository.findByLectureId(lecId);
     }
 }

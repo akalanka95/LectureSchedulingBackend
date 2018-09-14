@@ -13,30 +13,34 @@ public class TimeTable {
     private boolean tWeek;
     private boolean nWeek;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
-            CascadeType.REFRESH , CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.DETACH,
+            CascadeType.REFRESH})
     @JoinColumn(name = "course_id")
     private Course course;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH })
     @JoinColumn(name = "semester_id")
     private Semester semester;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH })
     @JoinColumn(name = "lecture_id")
     private Lecture lecture;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH})
     @JoinColumn(name = "startTime_id")
     private Time startTime;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH})
     @JoinColumn(name = "endTime_id")
     private Time endTime;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH})
     @JoinColumn(name = "day_id")
     private Day date;
+    @ManyToOne(cascade = {CascadeType.DETACH,
+            CascadeType.REFRESH})
+    @JoinColumn(name = "lectureHall_id")
+    private LectureHall lectureHall;
 
     public TimeTable() {
     }
@@ -128,4 +132,13 @@ public class TimeTable {
     public void setnWeek(boolean nWeek) {
         this.nWeek = nWeek;
     }
+
+    public LectureHall getLectureHall() {
+        return lectureHall;
+    }
+
+    public void setLectureHall(LectureHall lectureHall) {
+        this.lectureHall = lectureHall;
+    }
+
 }

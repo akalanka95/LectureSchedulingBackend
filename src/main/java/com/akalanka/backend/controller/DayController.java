@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/days")
+@RequestMapping(value = "api/days")
 public class DayController {
     @Autowired
     private DayService dayService;

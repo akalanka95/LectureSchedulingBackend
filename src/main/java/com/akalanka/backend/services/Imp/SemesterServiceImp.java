@@ -21,4 +21,9 @@ public class SemesterServiceImp implements SemesterService {
     public Semester save(Semester semester) {
         return semesterRepository.save(semester);
     }
+
+    @Override
+    public Semester findById(Integer semId) {
+        return semesterRepository.findById(semId);
+    }
 }

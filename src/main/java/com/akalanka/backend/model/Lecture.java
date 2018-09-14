@@ -48,6 +48,18 @@ public class Lecture {
     @JsonIgnore
     private List<TimeTable> timeTables;
 
+    @OneToMany(mappedBy = "lecture",
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+                    CascadeType.REFRESH  })
+    @JsonIgnore
+    private List<TimeTableWeek> timeTablesWeek;
+
+    @OneToMany(mappedBy = "lecture",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<Message> message;
+
 
     private boolean active;
     @Transient
@@ -147,5 +159,21 @@ public class Lecture {
 
     public void setTimeTables(List<TimeTable> timeTables) {
         this.timeTables = timeTables;
+    }
+
+    public List<TimeTableWeek> getTimeTablesWeek() {
+        return timeTablesWeek;
+    }
+
+    public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
+        this.timeTablesWeek = timeTablesWeek;
+    }
+
+    public List<Message> getMessage() {
+        return message;
+    }
+
+    public void setMessage(List<Message> message) {
+        this.message = message;
     }
 }

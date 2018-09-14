@@ -14,13 +14,14 @@ public class Course {
 
     private String courseCode;
     private String courseName;
+    private Integer courseCredit;
 
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
             CascadeType.REFRESH})
     @JoinColumn(name = "semester_id")
     private Semester semester;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
+    @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.REFRESH})
     @JoinColumn(name = "department_id")
     private Department department;
@@ -32,16 +33,16 @@ public class Course {
     @JoinColumn(name = "lecture_id")
     private Lecture lecture;
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
-            CascadeType.REFRESH})
-    @JoinColumn(name = "lectureHall_id")
-    private LectureHall lectureHall;
-
     @OneToMany(mappedBy = "course",
-            cascade = {CascadeType.DETACH,CascadeType.MERGE,
+            cascade = {CascadeType.DETACH,
                     CascadeType.REFRESH  })
     @JsonIgnore
     private List<TimeTable> timeTables;
+    @OneToMany(mappedBy = "course",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH  })
+    @JsonIgnore
+    private List<TimeTableWeek> timeTablesWeek;
 
     public Course(String courseCode, String courseName,Semester semester, Department department, String description, Lecture lecture) {
         this.courseCode = courseCode;
@@ -110,19 +111,27 @@ public class Course {
         this.lecture = lecture;
     }
 
-    public LectureHall getLectureHall() {
-        return lectureHall;
-    }
-
-    public void setLectureHall(LectureHall lectureHall) {
-        this.lectureHall = lectureHall;
-    }
-
     public List<TimeTable> getTimeTables() {
         return timeTables;
     }
 
     public void setTimeTables(List<TimeTable> timeTables) {
         this.timeTables = timeTables;
+    }
+
+    public Integer getCourseCredit() {
+        return courseCredit;
+    }
+
+    public void setCourseCredit(Integer courseCredit) {
+        this.courseCredit = courseCredit;
+    }
+
+    public List<TimeTableWeek> getTimeTablesWeek() {
+        return timeTablesWeek;
+    }
+
+    public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
+        this.timeTablesWeek = timeTablesWeek;
     }
 }

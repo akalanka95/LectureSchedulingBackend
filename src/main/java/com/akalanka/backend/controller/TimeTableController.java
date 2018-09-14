@@ -6,15 +6,12 @@ import com.akalanka.backend.model.TimeTable;
 import com.akalanka.backend.services.CourseService;
 import com.akalanka.backend.services.TimeTableService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/timeTables")
+@RequestMapping(value = "api/timeTables")
 public class TimeTableController {
     @Autowired
     private TimeTableService timeTableService;
@@ -68,5 +65,22 @@ public class TimeTableController {
         System.out.println("listOfTimeTableByWeek Week Week");
         return timeTableService.findByWeek();
     }
+
+    @RequestMapping("/listOfTimeTableByLectureId/{lecId}")
+    public Iterable<TimeTable> listOfTimeTableByLectureId( @PathVariable("lecId") Integer lecId ){
+        System.out.println("listOfTimeTableByLectureId lecture Id");
+        return timeTableService.findByLectureId(lecId);
+    }
+
+    @RequestMapping("/delete")
+    public void delete(@RequestBody TimeTable timeTable){
+        timeTableService.delete(timeTable);
+    }
+
+    @PutMapping("/updateSubject")
+    public TimeTable updateStudent(@RequestBody TimeTable timeTable){
+        return  timeTableService.save(timeTable);
+    }
+
 
 }

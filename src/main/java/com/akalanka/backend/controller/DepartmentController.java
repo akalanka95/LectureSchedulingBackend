@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/departments")
+@RequestMapping(value = "api/departments")
 public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;

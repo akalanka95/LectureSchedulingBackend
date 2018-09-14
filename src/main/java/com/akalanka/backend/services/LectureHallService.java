@@ -8,4 +8,6 @@ import java.util.List;
 public interface LectureHallService {
     List<LectureHall> findAll();
     LectureHall save(LectureHall lectureHall);
+
+    LectureHall findById(Integer hallId);
 }
