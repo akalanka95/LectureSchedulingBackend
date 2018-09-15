@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/book/**",
 			"/user/**",
 			"/messages/**",
-			"/token/**"
+			"/token/**",
+			"/frontend/**"
 	};
 	
 	@Override

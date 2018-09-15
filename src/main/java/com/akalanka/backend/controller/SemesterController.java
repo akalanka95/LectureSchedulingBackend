@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/semesters")
+@RequestMapping(value = {"api/semesters" , "frontend/semesters"})
 public class SemesterController {
     @Autowired
     private SemesterService semesterService;

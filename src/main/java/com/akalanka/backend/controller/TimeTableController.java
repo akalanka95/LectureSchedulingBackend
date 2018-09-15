@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/timeTables")
+@RequestMapping( value =  {"api/timeTables" , "frontend/timeTables"})
 public class TimeTableController {
     @Autowired
     private TimeTableService timeTableService;
