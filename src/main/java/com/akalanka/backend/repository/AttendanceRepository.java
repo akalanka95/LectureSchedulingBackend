@@ -10,4 +10,20 @@ public interface AttendanceRepository extends JpaRepository<Attendance , Integer
     @Modifying
     @Query("UPDATE Attendance c SET c.monday = :actives")
     void updateMonday(@Param("actives") boolean actives);
+
+    @Modifying
+    @Query("UPDATE Attendance c SET c.tuesday = :actives")
+    void updateTuesDay(@Param("actives") boolean actives);
+
+    @Modifying
+    @Query("UPDATE Attendance c SET c.wednesday = :actives")
+    void updateWednesDay(@Param("actives") boolean actives);
+
+    @Modifying
+    @Query("UPDATE Attendance c SET c.thursday = :actives")
+    void updateThursDay(@Param("actives") boolean actives);
+
+    @Modifying
+    @Query("UPDATE Attendance c SET c.friday = :actives")
+    void updateFriday(@Param("actives") boolean actives);
 }

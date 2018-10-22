@@ -18,4 +18,28 @@ public class AttendanceServiceImp implements AttendanceService {
         System.out.println("This workkkkkkkk");
          attendanceRepository.updateMonday(actives);
     }
+
+    @Override
+    @Transactional
+    public void updateTuesday(boolean actives) {
+        attendanceRepository.updateTuesDay(actives);
+    }
+
+    @Override
+    @Transactional
+    public void updateWednesday(boolean actives) {
+        attendanceRepository.updateWednesDay(actives);
+    }
+
+    @Override
+    @Transactional
+    public void updateThursday(boolean actives) {
+        attendanceRepository.updateThursDay(actives);
+    }
+
+    @Override
+    @Transactional
+    public void updateFriday(boolean actives) {
+        attendanceRepository.updateFriday(actives);
+    }
 }

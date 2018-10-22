@@ -37,6 +37,19 @@ public class Semester {
     @JsonIgnore
     private List<TimeTableWeek> timeTablesWeek;
 
+    @OneToMany(mappedBy = "semester",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<Register> register;
+
+    @OneToMany(mappedBy = "semester",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<Result> result;
+
+
     public Semester() {
     }
 
@@ -90,5 +103,21 @@ public class Semester {
 
     public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
         this.timeTablesWeek = timeTablesWeek;
+    }
+
+    public List<Register> getRegister() {
+        return register;
+    }
+
+    public void setRegister(List<Register> register) {
+        this.register = register;
+    }
+
+    public List<Result> getResult() {
+        return result;
+    }
+
+    public void setResult(List<Result> result) {
+        this.result = result;
     }
 }

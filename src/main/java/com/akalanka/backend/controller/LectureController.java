@@ -23,6 +23,10 @@ public class LectureController {
     public List<Lecture> updateAttendance(@RequestBody List<Lecture> lectures){
         return  lectureService.saveAll(lectures);
     }
+    @PutMapping("/update")
+    public Lecture updateLecture(@RequestBody Lecture lectures){
+        return  lectureService.save(lectures);
+    }
     @RequestMapping("/addLecture")
     public Lecture saveLecture(@RequestBody Lecture lecture){
         return lectureService.save(lecture);
@@ -33,6 +37,10 @@ public class LectureController {
         return  lectureService.findById(lecId);
     }
 
+    @RequestMapping("/deleteLecture")
+    public void deleteLecture(@RequestBody Lecture lecture){
+        lectureService.delete(lecture);
+    }
 
 
 }

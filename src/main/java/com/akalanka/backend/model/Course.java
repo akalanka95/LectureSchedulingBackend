@@ -44,6 +44,12 @@ public class Course {
     @JsonIgnore
     private List<TimeTableWeek> timeTablesWeek;
 
+    @OneToMany(mappedBy = "course",
+            cascade = {CascadeType.DETACH,
+                    CascadeType.REFRESH})
+    @JsonIgnore
+    private List<Result> result;
+
     public Course(String courseCode, String courseName,Semester semester, Department department, String description, Lecture lecture) {
         this.courseCode = courseCode;
         this.courseName = courseName;
@@ -133,5 +139,13 @@ public class Course {
 
     public void setTimeTablesWeek(List<TimeTableWeek> timeTablesWeek) {
         this.timeTablesWeek = timeTablesWeek;
+    }
+
+    public List<Result> getResult() {
+        return result;
+    }
+
+    public void setResult(List<Result> result) {
+        this.result = result;
     }
 }

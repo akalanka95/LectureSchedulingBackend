@@ -27,6 +27,7 @@ public class Student {
     private String role;
     private boolean active;
     private String imageUrl;
+    private String code;
 
     @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
     CascadeType.REFRESH})
@@ -128,5 +129,13 @@ public class Student {
 
     public void setSemester(Semester semester) {
         this.semester = semester;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

@@ -8,4 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface LectureRepository extends JpaRepository<Lecture , Integer> {
     Lecture findById(@Param("lecId") Integer lecId);
+
+    Lecture findByContact(@Param("contact") String contact);
 }

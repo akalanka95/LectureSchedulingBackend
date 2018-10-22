@@ -26,6 +26,7 @@ public class Lecture {
     //@NotEmpty(message = "Please enter the Role!")
     private String role;
     private String imageUrl;
+    private String code;
 
     @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,
             CascadeType.REFRESH, CascadeType.PERSIST})
@@ -175,5 +176,13 @@ public class Lecture {
 
     public void setMessage(List<Message> message) {
         this.message = message;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

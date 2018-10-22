@@ -18,7 +18,27 @@ public class AttendanceController {
 
     @RequestMapping("/updateMonday/{active}")
     public void updateMonday(@PathVariable("active") boolean actives){
-        System.out.println("Comes to the controller");
+        System.out.println("Comes to the Monday controller");
           attendanceService.updateMonday(actives);
+    }
+    @RequestMapping("/updateTuesday/{active}")
+    public void updateTuesday(@PathVariable("active") boolean actives){
+        System.out.println("Comes to the Tuesday controller");
+        attendanceService.updateTuesday(actives);
+    }
+    @RequestMapping("/updateWednesday/{active}")
+    public void updateWednesday(@PathVariable("active") boolean actives){
+        System.out.println("Comes to the Wenesday controller");
+        attendanceService.updateWednesday(actives);
+    }
+    @RequestMapping("/updateThursday/{active}")
+    public void updateThursday(@PathVariable("active") boolean actives){
+        System.out.println("Comes to the Thursday controller");
+        attendanceService.updateThursday(actives);
+    }
+    @RequestMapping("/updateFriday/{active}")
+    public void updateFriday(@PathVariable("active") boolean actives){
+        System.out.println("Comes to the Friday  controller");
+        attendanceService.updateFriday(actives);
     }
 }

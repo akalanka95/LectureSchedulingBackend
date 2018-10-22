@@ -33,4 +33,9 @@ public class LectureServiceImp implements LectureService {
     public Lecture findById(Integer lecId) {
         return lectureRepository.findById(lecId);
     }
+
+    @Override
+    public void delete(Lecture lecture) {
+        lectureRepository.delete(lecture);
+    }
 }

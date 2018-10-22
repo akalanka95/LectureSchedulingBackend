@@ -45,6 +45,7 @@ public class StudentController {
     }
     @PutMapping("/updateStudent")
     public Student updateStudent(@RequestBody Student student){
+        System.out.println("updtae student controller");
         return  studentService.save(student);
     }
     @RequestMapping("/deleteStudent")

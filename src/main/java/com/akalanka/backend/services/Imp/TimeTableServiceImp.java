@@ -40,7 +40,83 @@ public class TimeTableServiceImp implements TimeTableService {
         System.out.println("Time Table This workkkkkkkk");
         timeTableRepository.updateEnableByMonday(actives);
     }
+    @Override
+    @Transactional
+    public void updateEnableByTuesday(boolean actives) {
+        System.out.println("Time Table This workkkkkkkk");
+        timeTableRepository.updateEnableByTuesday(actives);
+    }@Override
+    @Transactional
+    public void updateEnableByWednesday(boolean actives) {
+        System.out.println("Time Table This workkkkkkkk");
+        timeTableRepository.updateEnableByWednesday(actives);
+    }
+    @Override
+    @Transactional
+    public void updateEnableByThursday(boolean actives) {
+        System.out.println("Time Table This workkkkkkkk");
+        timeTableRepository.updateEnableByThursday(actives);
+    }@Override
+    @Transactional
+    public void updateEnableByFriday(boolean actives) {
+        System.out.println("Time Table This workkkkkkkk");
+        timeTableRepository.updateEnableByFriday(actives);
+    }
+    @Override
+    @Transactional
+    public void updateIdByMonDay(Integer lecId , boolean active) {
+        timeTableRepository.updateWeekByMonday(lecId , active);
+    }
+    @Override
+    @Transactional
+    public void updateIdByTuesDay(Integer lecId , boolean active) {
+        System.out.println("In the tuesday false service ");
+        timeTableRepository.updateWeekByTuesday(lecId , active);
+    }
+    @Override
+    @Transactional
+    public void updateIdByWednesDay(Integer lecId, boolean active) {
+        timeTableRepository.updateWeekByWednesday(lecId, active);
+    }
+    @Override
+    @Transactional
+    public void updateIdByThursDay(Integer lecId, boolean active) {
+        timeTableRepository.updateWeekByThursday(lecId, active);
+    }
+    @Override
+    @Transactional
+    public void updateIdByFriDay(Integer lecId, boolean active) {
+        timeTableRepository.updateWeekByFriday(lecId, active);
+    }
 
+    /*@Override
+    @Transactional
+    public void updateIdByMonDayTrue(Integer lecId) {
+        timeTableRepository.updateWeekByMondayTrue(lecId);
+    }
+    @Override
+    @Transactional
+    public void updateIdByTuesDayTrue(Integer lecId) {
+        System.out.println("In the tuesday true service ");
+        timeTableRepository.updateWeekByTuesdayTrue(lecId);
+    }*/
+    /* @Override
+   @Transactional
+   public void updateIdByWednesDayTrue(Integer lecId) {
+       timeTableRepository.updateWeekByWednesdayTrue(lecId);
+   }
+   @Override
+   @Transactional
+   public void updateIdByThursDayTrue(Integer lecId) {
+       timeTableRepository.updateWeekByThursdayTrue(lecId);
+   }
+   @Override
+   @Transactional
+   public void updateIdByFriDayTrue(Integer lecId) {
+       timeTableRepository.updateWeekByFridayTrue(lecId);
+   }
+
+*/
     @Override
     public Iterable<TimeTable> findBySemesterIdAndLectureId(Integer semId, Integer lecId) {
         return timeTableRepository.findBySemesterIdAndLectureId(semId, lecId);
