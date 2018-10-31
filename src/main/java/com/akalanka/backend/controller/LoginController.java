@@ -17,7 +17,7 @@ import java.util.Map;
 
 @CrossOrigin(origins = {"http://localhost:8081", "http://localhost:8088"})
 @RestController
-@RequestMapping(value = "api")
+// @RequestMapping(value = "api")
 public class LoginController {
     @Autowired
     private UserService userService;

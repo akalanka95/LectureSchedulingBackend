@@ -63,8 +63,8 @@ public class BackendApplication implements CommandLineRunner {
 		User user1 = new User();
 		user1.setFirstName("John");
 		user1.setLastName("Adams");
-		user1.setUsername("j");
-		user1.setPassword(SecurityUtility.passwordEncoder().encode("p"));
+		user1.setUsername("a");
+		user1.setPassword(SecurityUtility.passwordEncoder().encode("m"));
 		user1.setEmail("JAdams@gmail.com");
 		Set<UserRole> userRoles = new HashSet<>();
 		Role role1 = new Role();
@@ -134,8 +134,33 @@ public class BackendApplication implements CommandLineRunner {
 
 		Week w5 = new Week();
 		w5.setActive(false);
-		w5.setWeek("All Weeks");
+		w5.setWeek("Week 5");
 		weekRepository.save(w5);
+
+		Week w6 = new Week();
+		w6.setActive(false);
+		w6.setWeek("Week 6");
+		weekRepository.save(w6);
+
+		Week w7 = new Week();
+		w7.setActive(false);
+		w7.setWeek("Week 7");
+		weekRepository.save(w7);
+
+		Week w8 = new Week();
+		w8.setActive(false);
+		w8.setWeek("Week 8");
+		weekRepository.save(w8);
+
+		Week w9 = new Week();
+		w9.setActive(false);
+		w9.setWeek("Week 9");
+		weekRepository.save(w9);
+
+		Week w10 = new Week();
+		w10.setActive(false);
+		w10.setWeek("All Weeks");
+		weekRepository.save(w10);
 
 		//day
 		Day d1 = new Day();

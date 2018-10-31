@@ -3,6 +3,8 @@ package com.akalanka.backend.controller;
 import com.akalanka.backend.model.Course;
 import com.akalanka.backend.model.Student;
 import com.akalanka.backend.model.TimeTable;
+import com.akalanka.backend.model.TimeTableWeek;
+import com.akalanka.backend.repository.TimeTableRepository;
 import com.akalanka.backend.services.CourseService;
 import com.akalanka.backend.services.TimeTableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,13 @@ import java.util.List;
 public class TimeTableController {
     @Autowired
     private TimeTableService timeTableService;
+    @Autowired
+    private TimeTableRepository timeTableRepository;
 
+    @RequestMapping("/save")
+    public List<TimeTable> save(@RequestBody List<TimeTable> timeTable){
+        return  timeTableRepository.save(timeTable);
+    }
     @RequestMapping("/findAll")
     public List<TimeTable> findAll(){
         return  timeTableService.findAll();
